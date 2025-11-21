@@ -11,7 +11,7 @@ exp_identifier: diffevolution
 
 # MODEL CONFIGURATIONS
 # Specifies the model configurations.
-model_id: ./weights/stable-diffusion-2-1-base  # Name of the Stable Diffusion repository on HuggingFace (e.g. stabilityai/stable-diffusion-2-1) or the path to the cloned repository (e.g. /mypath/stable-diffusion-2-1).
+model_id: segmind/tiny-sd  # Name of the Stable Diffusion repository on HuggingFace (e.g. stabilityai/stable-diffusion-2-1) or the path to the cloned repository (e.g. /mypath/stable-diffusion-2-1).
 scheduler: DPMSolverMultistepScheduler  # Name of the scheduler algorithm.
 att_slicing: True  # Whether attention slicing should be used (reduces memory consumption during the diffusion process at the cost of speed).
 vae_slicing: True  # Whether VAE slicing should be used (reduces memory consumption during the decoding stage at the cost of speed).
