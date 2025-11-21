@@ -6,7 +6,15 @@ import numpy as np
 import torch
 
 
-def generate_output_folder(model_identifier, exp_identifier, cfg_path, dest_path, embeddings=True, images=True, gifs=True):
+def generate_output_folder(
+    model_identifier,
+    exp_identifier,
+    cfg_path,
+    dest_path,
+    embeddings=True,
+    images=True,
+    gifs=True,
+):
     """
     Generates an output folder for storing the experiment configuration and the generated outputs. The folder name
     consists of the current date, time, model identifier and experiment identifier.
@@ -26,8 +34,8 @@ def generate_output_folder(model_identifier, exp_identifier, cfg_path, dest_path
     # Generates the subfolders
     os.makedirs(f"{folder_path}/configs")
     os.makedirs(f"{folder_path}/embeddings") if embeddings else None
-    os.makedirs(f"{folder_path}/images")  if images else None
-    os.makedirs(f"{folder_path}/gifs")  if gifs else None
+    os.makedirs(f"{folder_path}/images") if images else None
+    os.makedirs(f"{folder_path}/gifs") if gifs else None
 
     # Copies the experiment configuration
     shutil.copy(cfg_path, f"{folder_path}/configs/{cfg_path.split('/')[-1]}")
@@ -36,7 +44,9 @@ def generate_output_folder(model_identifier, exp_identifier, cfg_path, dest_path
     return folder_path
 
 
-def save_sd_results(output_path, prompt_emb, latent_noise, image_embed, image, file_name):
+def save_sd_results(
+    output_path, prompt_emb, latent_noise, image_embed, image, file_name
+):
     """
     Saves the experiment results produced by Stable Diffusion.
 
@@ -51,9 +61,9 @@ def save_sd_results(output_path, prompt_emb, latent_noise, image_embed, image, f
         {
             "prompt_embed": prompt_emb,
             "latent_noise": latent_noise,
-            "image_embed": image_embed
+            "image_embed": image_embed,
         },
-        f"{output_path}/embeddings/{file_name}.pt"
+        f"{output_path}/embeddings/{file_name}.pt",
     )
     image.save(f"{output_path}/images/{file_name}.png")
 
@@ -67,8 +77,14 @@ def produce_gif(images, output_path, gif_frame_dur):
     :param gif_frame_dur: Specifies the frame duration in milliseconds for the produced gifs.
     """
     for i in range(len(images)):
-        images[i][0].save(f"{output_path}/gifs/output-{i}.gif", format="GIF",
-                           append_images=images[i][1:], save_all=True, duration=gif_frame_dur, loop=0)
+        images[i][0].save(
+            f"{output_path}/gifs/output-{i}.gif",
+            format="GIF",
+            append_images=images[i][1:],
+            save_all=True,
+            duration=gif_frame_dur,
+            loop=0,
+        )
 
 
 def interpolate(x, y, steps, interpolation_method="slerp"):
