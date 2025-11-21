@@ -18,47 +18,16 @@
 
 ## Setup
 ### Installation
+
+This has been configured to work with **CUDA 12.8**
+
 1. Clone this repository.
 
-       git clone https://github.com/alen-smajic/Stable-Diffusion-Latent-Space-Explorer
+       git clone https://github.com/DolicaAkelloEgwel/Stable-Diffusion-Latent-Space-Explorer
        
-2. Create a virtual environment and activate it.
+2. Intall required libraries
 
-       python -m venv venv
-       
-3. Install PyTorch with CUDA ([follow this PyTorch installation](https://pytorch.org/get-started/locally/)).
-       
-4. Install [diffusers](https://huggingface.co/docs/diffusers/index) and [transformers](https://huggingface.co/docs/transformers/index) libraries.
-
-       pip install diffusers["torch"] transformers
-       
-5. Optional: Install [xFormers](https://github.com/facebookresearch/xformers) for efficient attention.
-
-       pip install xformers
-       
-### Tested Versions
-If you face any issues, you should try to match the version of the installed packages to these versions:
-
-- torch 2.0.0
-- cuda 11.8
-- diffusers 0.14.0
-- xformers 0.0.16
-       
-### Model Weights
-You can download the model weights using [git-lfs](https://git-lfs.com/).
-
-        git lfs install
-        git clone https://huggingface.co/stabilityai/stable-diffusion-2-1
-        
-The command above will create a local folder called ```./stable-diffusion-2-1``` on your disk.
-
-The code in this repo was tested on: 
-
-:heavy_check_mark: [Stable Diffusion 2.1](https://huggingface.co/stabilityai/stable-diffusion-2-1) (native resolution 768x768)
-
-:heavy_check_mark: [Stable Diffusion 2.1 Base](https://huggingface.co/stabilityai/stable-diffusion-2-1-base) (native resolution 512x512)
-
-:heavy_check_mark: [Stable Diffusion 2 Inpainting](https://huggingface.co/stabilityai/stable-diffusion-2-inpainting) (native resolution 512x512)
+       uv sync
 
 ## Instructions
 Below is a list of experiments that are currently supported. Each entry is linked to a tutorial of the specified experiment.
