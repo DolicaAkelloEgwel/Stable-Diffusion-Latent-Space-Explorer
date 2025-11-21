@@ -153,7 +153,7 @@ class StableDiffusion:
         """
         scale_factor = 2 ** (len(self.sd_pipeline.vae.config.block_out_channels) - 1)
         shape = (images_per_prompt, self.sd_pipeline.vae.latent_channels, height // scale_factor, width // scale_factor)
-        latent_noise = diffusers.utils.randn_tensor(
+        latent_noise = diffusers.utils.torch_utils.randn_tensor(
             shape,
             generator=torch.Generator("cpu").manual_seed(rand_seed),
             device=self.device,
